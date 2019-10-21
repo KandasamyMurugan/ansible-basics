@@ -5,12 +5,16 @@
       yum: 
         name: elinks
         state: latest
-
-
     - name: Installing httpd package
       yum:
         name: httpd
         state: present
+    - name: starting httpd service
       service:
+        name: httpd
         state: started
         enabled: yes
+    - name: Copying index file
+      copy:
+        src="/home/cloud_user/index.html"
+        dest="/var/www/html"
