@@ -1,5 +1,6 @@
 --- # Sample play
 - hosts: all
+  become: yes
   tasks:
     - name: Installing Softwares
       yum: 
@@ -16,5 +17,29 @@
         enabled: yes
     - name: Copying index file
       copy:
-        src="/home/cloud_user/index.html"
-        dest="/var/www/html"
+        src: /home/cloud_user/index.html
+        dest: /var/www/html
+
+###Copying terrorform
+- hosts: web
+  become: yes
+  tasks:
+    - name: Getting terraform from URL
+      get_url:
+        url: https://releases.hashicorp.com/terraform/0.12.12/terraform_0.12.12_linux_amd64.zip
+        dest: /home/cloud_user/
+        owner: cloud_user
+    - name: Installing unzip
+      yum:
+        name: unzip
+        state: present
+    - name: Unarchiving the terraform
+      unarchive:
+        src: /home/cloud_user/terraform_0.12.12_linux_amd64.zip
+        dest: /home/cloud_user/
+        remote_src: yes
+        
+        
+        
+
+
