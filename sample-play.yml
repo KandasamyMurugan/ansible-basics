@@ -1,0 +1,7 @@
+--- # Sample play
+- hosts: all
+  tasks:
+    - name: Installing Softwares
+      yum: 
+        name: elinks
+        state: latest
