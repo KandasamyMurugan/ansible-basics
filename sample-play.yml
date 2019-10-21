@@ -1,9 +1,10 @@
+
 --- # Sample play
 - hosts: all
   become: yes
   tasks:
     - name: Installing Softwares
-      yum: 
+      yum:
         name: elinks
         state: latest
     - name: Installing httpd package
@@ -38,8 +39,16 @@
         src: /home/cloud_user/terraform_0.12.12_linux_amd64.zip
         dest: /home/cloud_user/
         remote_src: yes
+<<<<<<< HEAD
         
         
         
+=======
+    - name: Copying terraform to /usr/local/bin
+      copy:
+      src: /home/cloud_user/terraform
+      dest: /usr/local/bin
+      
+>>>>>>> 27ce3eb0bc4900093a1bb2ac59597220e092a251
 
 
