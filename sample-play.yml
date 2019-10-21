@@ -5,3 +5,12 @@
       yum: 
         name: elinks
         state: latest
+
+
+    - name: Installing httpd package
+      yum:
+        name: httpd
+        state: present
+      service:
+        state: started
+        enabled: yes
