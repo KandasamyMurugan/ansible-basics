@@ -1,0 +1,38 @@
+# YAML LIST
+user:
+- bob
+- john
+- cindy
+
+#YAML Dictinory
+
+user:
+  name: kanda
+  job: engineer
+  salary: *******
+
+#There are two characters that can be used to indicate a multi-line value: | or >.
+
+
+#when to Qoute:
+
+1) if a colon ends a line or followed by a space, the values should be wrapped in double qoutes.
+2) Special characters meant to be literals should be always be wrapped in double qoutes.
+   YAML Special characters are: [] {} : > |
+   It should ne noted that variables in ansible are an exception to the specail character rule.
+
+
+#How to specify the variable
+
+AS Anissible variables are indicated with curly braces, "{{ variable }}", They must be wrapped in double qoutes to prevent interpretation as dictinoary.
+
+
+#Booleans
+
+Bollenas are automatically converted in Ansible, thus allowing one to use yes, no, true, false, etc.
+
+ex: become: yes
+
+Floating point numbers are taken as number by default.
+
+version: "1.0"
