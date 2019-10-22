@@ -1,0 +1,15 @@
+--- # Sample play
+- hosts: all
+  vars_prompt:
+    - prompt: Enter the IP?
+      name: IP
+      private: no
+  tasks:
+    - name: Prompting
+      debug:
+        msg: "IP = {{IP}}"
+    - name: Update the host on host file
+      lineinfile:
+        path: /etc/ansible/hosts
+        line: "{{IP}}"        
+
